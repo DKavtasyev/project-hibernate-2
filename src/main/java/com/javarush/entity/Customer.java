@@ -20,7 +20,7 @@ public class Customer implements Domain
 	private short customerId;
 
 	@ManyToOne
-	@JoinColumn(name = "store_id", nullable = false)		// TODO Уточнить, можно ли указывать одновременно связь ManyToOne и OneToMany
+	@JoinColumn(name = "store_id", nullable = false)
 	private Store store;
 
 	@Column(name = "first_name", length = 45, nullable = false)
@@ -38,11 +38,11 @@ public class Customer implements Domain
 
 	@Column(name = "active", nullable = false)
 	@Basic
-	private boolean active = true;									// TODO Уточнить значение по умолчанию
+	private boolean active = true;
 
 	@CreationTimestamp
 	@Column(name = "create_date", nullable = false)
-	private LocalDateTime createDate;						// TODO Уточнить тип
+	private LocalDateTime createDate;
 
 	@UpdateTimestamp
 	@Column(name = "last_update")

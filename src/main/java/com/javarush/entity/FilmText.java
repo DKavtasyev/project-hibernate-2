@@ -21,6 +21,6 @@ public class FilmText implements Domain
 	@Column(name = "title", nullable = false)
 	private String title;
 
-	@Column(name = "description", columnDefinition = "TEXT")		//TODO Уточнить, как мапить TEXT
+	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
 }
