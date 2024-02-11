@@ -16,7 +16,7 @@ public class Inventory implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "inventory_id", nullable = false)
-	private int inventoryId;
+	private Integer inventoryId;
 
 	@ManyToOne
 	@JoinColumn(name = "film_id", nullable = false)
@@ -36,7 +36,7 @@ public class Inventory implements Domain
 	{
 		return "inventory id: " + inventoryId + "\n" +
 				"film id: " + film.getFilmId() + "\n" +
-				"film name: " + film.getFilmText().getTitle() + "\n" +
+				"film name: " + film.getTitle() + "\n" +
 				"store id: " + store.getStoreId() + "\n";
 	}
 }

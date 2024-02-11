@@ -16,7 +16,7 @@ public class Country implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "country_id", nullable = false)
-	private short countryId;
+	private Short countryId;
 
 	@Column(name = "country", length = 50, nullable = false)
 	private String country;

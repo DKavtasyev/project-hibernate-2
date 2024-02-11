@@ -5,7 +5,6 @@ import com.javarush.constants.Rating;
 import com.javarush.dao.MovieDAO;
 import com.javarush.entity.Actor;
 import com.javarush.entity.Film;
-import com.javarush.entity.FilmText;
 import com.javarush.entity.Language;
 import com.javarush.factory.MySessionFactory;
 import org.hibernate.Session;
@@ -22,23 +21,20 @@ public class AddingNewFilm
 	{
 		try(Session session = MySessionFactory.getSessionFactory().openSession())
 		{
-			FilmText filmText = new FilmText();
-			filmText.setTitle("EXCITING CODING");
-			filmText.setDescription("A fascinating drama about growing Senior Java Backend Developer");
-
 			Language language = session.get(Language.class, 1);
 
 			Actor actor1 = session.get(Actor.class, 5);
 			Actor actor2 = session.get(Actor.class, 25);
 			Actor actor3 = new Actor();
 			actor3.setFirstName("JULIO");
-			actor3.setLastName("ALVARES");
+			actor3.setLastName("FERNANDES");
 
 			Set<Actor> actors = new HashSet<>();
 			Collections.addAll(actors, actor1, actor2, actor3);
 
 			Film film = new FilmBuilder(session)
-					.addFilmText(filmText)
+					.addTitle("EXCITING CODING")
+					.addDescription("A fascinating drama about growing Senior Java Backend Developer")
 					.addReleaseYear(2024)
 					.addLanguage(language)
 					.addLength(180)

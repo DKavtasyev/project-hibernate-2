@@ -16,7 +16,7 @@ public class Language implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "language_id", nullable = false)
-	private byte languageId;
+	private Byte languageId;
 
 	@Column(name = "name", nullable = false, length = 20, columnDefinition = "CHAR")
 	private String name;

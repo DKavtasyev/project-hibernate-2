@@ -16,7 +16,7 @@ public class Store implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "store_id", nullable = false)
-	private byte storeId;
+	private Byte storeId;
 
 	@OneToOne
 	@JoinColumn(name = "manager_staff_id")

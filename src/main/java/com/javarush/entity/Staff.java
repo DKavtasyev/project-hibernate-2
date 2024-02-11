@@ -16,7 +16,7 @@ public class Staff implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "staff_id", nullable = false)
-	private byte staffId;
+	private Byte staffId;
 
 	@Column(name = "first_name", length = 45, nullable = false)
 	private String firstName;

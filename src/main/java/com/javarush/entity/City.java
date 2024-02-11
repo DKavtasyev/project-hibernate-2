@@ -16,7 +16,7 @@ public class City implements Domain
 	@Id
 	@Column(name = "city_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short cityId;
+	private Short cityId;
 
 	@Column(name = "city", length = 50, nullable = false)
 	private String city;

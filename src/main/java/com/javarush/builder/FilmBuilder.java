@@ -19,9 +19,15 @@ public class FilmBuilder
 		this.session = session;
 	}
 
-	public FilmBuilder addFilmText(FilmText filmText)
+	public FilmBuilder addTitle(String title)
 	{
-		film.setFilmText(filmText);
+		film.setTitle(title);
+		return this;
+	}
+
+	public FilmBuilder addDescription(String description)
+	{
+		film.setDescription(description);
 		return this;
 	}
 
@@ -56,7 +62,7 @@ public class FilmBuilder
 		return this;
 	}
 
-	public FilmBuilder setReplacementCost(double replacementCost)
+	public FilmBuilder addReplacementCost(double replacementCost)
 	{
 		film.setReplacementCost(replacementCost);
 		return this;

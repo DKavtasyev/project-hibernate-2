@@ -17,7 +17,7 @@ public class Customer implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id", nullable = false)
-	private short customerId;
+	private Short customerId;
 
 	@ManyToOne
 	@JoinColumn(name = "store_id", nullable = false)

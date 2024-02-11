@@ -16,7 +16,7 @@ public class Address implements Domain
 	@Id
 	@Column(name = "address_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short addressId;
+	private Short addressId;
 
 	@Column(name = "address", nullable = false, length = 50)
 	private String address;

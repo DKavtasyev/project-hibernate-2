@@ -7,10 +7,8 @@ import org.hibernate.query.NativeQuery;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 public class MovieDAO
 {
@@ -27,6 +25,8 @@ public class MovieDAO
 		try
 		{
 			transaction.begin();
+			session.persist(customer.getAddress().getCity().getCountry());
+			session.persist(customer.getAddress().getCity());
 			session.persist(customer.getAddress());
 			session.persist(customer);
 			transaction.commit();
@@ -117,7 +117,6 @@ public class MovieDAO
 		try
 		{
 			transaction.begin();
-//			session.persist(film.getFilmText());
 			session.persist(film.getLanguage());
 
 			if(film.getOriginalLanguage() != null)
@@ -125,19 +124,20 @@ public class MovieDAO
 				session.persist(film.getOriginalLanguage());
 			}
 
-			Set<Actor> actors = new HashSet<>(film.getActors());
-			film.getActors().clear();
-
-			for(Actor actor: actors)
+			for(Actor actor: film.getActors())
 				session.persist(actor);
 
 			for(Category category: film.getCategories())
 				session.persist(category);
 
 			session.persist(film);
-			session.flush();
 
-			film.getActors().addAll(actors);
+			FilmText filmText = new FilmText();
+			filmText.setFilm(film);
+			filmText.setFilmId(film.getFilmId());
+			filmText.setTitle(film.getTitle());
+			filmText.setDescription(film.getDescription());
+			session.persist(filmText);
 			transaction.commit();
 		}
 		catch(Exception e)

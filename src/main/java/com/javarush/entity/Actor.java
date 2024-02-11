@@ -18,7 +18,7 @@ public class Actor implements Domain
 	@Id
 	@Column(name = "actor_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short actorId;
+	private Short actorId;
 
 	@Column(name = "first_name", nullable = false, length = 45)
 	private String firstName;
@@ -31,7 +31,7 @@ public class Actor implements Domain
 	@Basic
 	private LocalDateTime lastUpdate;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "film_actor",
 		joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"),
 		inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))

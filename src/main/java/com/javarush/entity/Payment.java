@@ -16,7 +16,7 @@ public class Payment implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "payment_id", nullable = false)
-	private short paymentId;
+	private Short paymentId;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id")

@@ -16,7 +16,7 @@ public class Rental implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "rental_id", nullable = false)
-	private int rentalId;
+	private Integer rentalId;
 
 	@Column(name = "rental_date", nullable = false)
 	private LocalDateTime rentalDate;

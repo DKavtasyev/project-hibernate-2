@@ -18,7 +18,7 @@ public class Category implements Domain
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id", nullable = false)
-	private byte categoryId;
+	private Byte categoryId;
 
 	@Column(name = "name", nullable = false, length = 25)
 	private String name;
@@ -28,7 +28,7 @@ public class Category implements Domain
 	@Column(name = "last_update", nullable = false)
 	private LocalDateTime lastUpdate = LocalDateTime.now();
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "film_category",
 		joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "category_id"),
 		inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))

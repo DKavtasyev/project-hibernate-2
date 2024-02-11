@@ -23,10 +23,13 @@ public class Film implements Domain
 	@Id
 	@Column(name = "film_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public short filmId;
+	private Short filmId;
 
-	@Embedded
-	private FilmText filmText;
+	@Column(name = "title", nullable = false)
+	private String title;
+
+	@Column(name = "description", columnDefinition = "TEXT")
+	private String description;
 
 	@Column(name = "release_year", columnDefinition = "YEAR")
 	private Year year;
@@ -63,13 +66,13 @@ public class Film implements Domain
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "film_actor",
 		joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
 		inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"))
 	private Set<Actor> actors = new HashSet<>();
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "film_category",
 		joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
 		inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "category_id"))
